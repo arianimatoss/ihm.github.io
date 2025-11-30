@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="index.css" rel="stylesheet">
-  <!-- Development version -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
   <script src="./index.js"></script>
 </head>
-<body style="padding-left: 0;">
+<body>
   <header>
     <button><i data-lucide="menu" width="32" height="32" color="white"></i></button>
     <h1>Inatel</h1>
@@ -58,48 +57,49 @@
   </div>
   <div class="table-container">
     <h2>Avaliações</h2>
-    <table>
-      <thead>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Disciplina</th>
+            <th>Conteúdo</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Sala</th>
+            <th>Nota</th>
+          </tr>
+        </thead>
         <tr>
-          <th>Disciplina</th>
-          <th>Conteúdo</th>
-          <th>Data</th>
-          <th>Horário</th>
-          <th>Sala</th>
-          <th>Nota</th>
+          <td>S05 - Interface Homem-máquina</td>
+          <td>Introdução à IHM</td>
+          <td>19/09/2025</td>
+          <td>19h30</td>
+          <td>Sala 20/22</td>
+          <td>68</td>
         </tr>
-      </thead>
-      <tr>
-        <td>S05 - Interface Homem-máquina</td>
-        <td>Introdução à IHM</td>
-        <td>19/09/2025</td>
-        <td>19h30</td>
-        <td>Sala 20/22</td>
-        <td>68</td>
-      </tr>
-      <tr>
-        <td>M04 - Cálculo Aplicado a Engenharia II</td>
-        <td>Derivadas Parciais</td>
-        <td>01/10/2025</td>
-        <td>13h30</td>
-        <td>Sala 12</td>
-        <td>76</td>
-      </tr>
-      <tr>
-        <td>E08 - Eletrônica Digital Aplicada a Contadores e Sequenciadores</td>
-        <td>Contador Síncrono</td>
-        <td>15/09/2025</td>
-        <td>21h30</td>
-        <td>Sala 12</td>
-        <td>89</td>
-      </tr>
-    </table>
+        <tr>
+          <td>M04 - Cálculo Aplicado a Engenharia II</td>
+          <td>Derivadas Parciais</td>
+          <td>01/10/2025</td>
+          <td>13h30</td>
+          <td>Sala 12</td>
+          <td>76</td>
+        </tr>
+        <tr>
+          <td>E08 - Eletrônica Digital Aplicada a Contadores e Sequenciadores</td>
+          <td>Contador Síncrono</td>
+          <td>15/09/2025</td>
+          <td>21h30</td>
+          <td>Sala 12</td>
+          <td>89</td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div class="events-container">
     <h2 style="margin-top: 30px;">Próximos Eventos</h2>
     <div class="events-carousel">
         <div class="event">
-          <!-- <h3  style="text-align: center;">Workshop MIND++: Trabalho em Equipe em Cenários Tecnológicos</h3> -->
           <img src="images/workshop1.png" alt="Workshop Image" style="width: 100%; height: auto; margin-top: 10px;">
           <span><i data-lucide="calendar" width="16" height="16"></i><label>09/12/2025 - 15h30</label></span>
           <span><i data-lucide="clock" width="16" height="16"></i><label>Horas em AC: 1 </label></span>
@@ -125,8 +125,7 @@
   <div class="schedule">
     <h2 style="margin-top: 30px; color: white">Intercâmbio</h2>
     <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
-      <label style="color: white; width: 500px; text-align: center;">Possui alguma dúvida referente ao programa de intercâmbio do Inatel? Entre em contato conosco.
-</label>
+      <label style="color: white; width: 500px; text-align: center;">Possui alguma dúvida referente ao programa de intercâmbio do Inatel? Entre em contato conosco.</label>
     </div>
     <form id="contactForm">
       <div class="form-group">

@@ -8,12 +8,20 @@
   --main-font: 'Lexend', sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
   font-family: var(--main-font);
-
+  overflow-x: hidden;
 }
 
 header {
@@ -38,9 +46,11 @@ header button {
   justify-content: center;
   align-items: center;
   gap: 16px;
-  padding: 0 20px;
   background-color: var(--background-color);
-  padding: 30px;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .card {
@@ -48,12 +58,14 @@ header button {
   border-radius: 8px;
   padding: 16px;
   width: 30%;
+  max-width: calc(25% - 12px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 16px;
   background-color: white;
   height: auto;
+  box-sizing: border-box;
 }
 
 .card-title {
@@ -80,16 +92,41 @@ header button {
   margin-top: 2rem;
   padding: 0 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   background-color: var(--primary-color);
   color: var(--foreground-color);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-table {
-  max-width: 1200px;
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 table {
@@ -101,6 +138,7 @@ table {
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 40px;
+  min-width: 600px;
 }
 
 thead {
@@ -304,3 +342,231 @@ form button:hover {
 .modal-close:hover {
   background-color: #218838;
 }
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cards-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    width: 45%;
+    max-width: calc(50% - 8px);
+    min-width: 280px;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .table-container {
+    padding: 20px 10px;
+    align-items: center;
+  }
+
+  .table-container h2 {
+    text-align: center;
+    width: 100%;
+  }
+
+  table {
+    font-size: 0.75rem;
+    min-width: 500px;
+  }
+
+  th, td {
+    padding: 8px 6px;
+    font-size: 0.7rem;
+  }
+
+  th {
+    white-space: nowrap;
+  }
+
+  td {
+    word-break: break-word;
+  }
+
+  .events-carousel {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+
+  .event {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  form {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .schedule h2 {
+    font-size: 1.5rem;
+  }
+
+  .schedule label {
+    width: 100% !important;
+    max-width: 400px;
+    padding: 0 10px;
+  }
+
+  .modal-content {
+    padding: 30px 20px;
+    width: 85%;
+  }
+
+  .modal-header h2 {
+    font-size: 1.25rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.25rem;
+  }
+
+  header button i {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .cards-container {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .credits {
+    font-size: 0.85rem;
+  }
+
+  .table-container h2 {
+    font-size: 1.25rem;
+  }
+
+  table {
+    font-size: 0.65rem;
+    min-width: 450px;
+  }
+
+  th, td {
+    padding: 6px 4px;
+    font-size: 0.65rem;
+  }
+
+  th {
+    font-size: 0.6rem;
+  }
+
+  .events-container h2 {
+    font-size: 1.25rem;
+  }
+
+  .event {
+    padding: 12px;
+  }
+
+  .event span {
+    font-size: 0.8rem;
+  }
+
+  .schedule {
+    padding: 30px 15px;
+  }
+
+  .schedule h2 {
+    font-size: 1.25rem;
+    margin-top: 15px !important;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  form button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .modal-content {
+    padding: 20px 15px;
+    width: 90%;
+  }
+
+  .modal-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .modal-body p {
+    font-size: 0.9rem;
+  }
+
+  .modal-close {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
